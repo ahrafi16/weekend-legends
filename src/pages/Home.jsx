@@ -48,6 +48,34 @@ const Home = () => {
                     the spirit of the game.
                 </p>
 
+                <p className="text-3xl text-gray-800 amatic-sc-regular">
+                    Weekend Legends is a friendly cricket community where friends from
+                    our area meet regularly to play cricket at the Gono University field.
+                    Our goal is simple — enjoy cricket, build friendships, and celebrate
+                    the spirit of the game.
+                </p>
+
+                <p className="text-3xl text-gray-800 amatic-sc-regular">
+                    Weekend Legends is a friendly cricket community where friends from
+                    our area meet regularly to play cricket at the Gono University field.
+                    Our goal is simple — enjoy cricket, build friendships, and celebrate
+                    the spirit of the game.
+                </p>
+
+                <p className="text-3xl text-gray-800 amatic-sc-regular">
+                    Weekend Legends is a friendly cricket community where friends from
+                    our area meet regularly to play cricket at the Gono University field.
+                    Our goal is simple — enjoy cricket, build friendships, and celebrate
+                    the spirit of the game.
+                </p>
+
+                <p className="text-3xl text-gray-800 amatic-sc-regular">
+                    Weekend Legends is a friendly cricket community where friends from
+                    our area meet regularly to play cricket at the Gono University field.
+                    Our goal is simple — enjoy cricket, build friendships, and celebrate
+                    the spirit of the game.
+                </p>
+
             </section>
 
             {/* Highlights */}
