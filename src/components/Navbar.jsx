@@ -1,101 +1,117 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/logo.png";
 import ThemeToggle from "./ThemeToggle";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-    const links = (
-        <>
-            <li>
-                <NavLink to="/" className="font-semibold">
-                    Home
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/team" className="font-semibold">
-                    Team
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/matches" className="font-semibold">
-                    Matches
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/gallery" className="font-semibold">
-                    Gallery
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/stats" className="font-semibold">
-                    Stats
-                </NavLink>
-            </li>
-            <li>
-                <NavLink to="/about" className="font-semibold">
-                    About
-                </NavLink>
-            </li>
-        </>
-    );
+    const [open, setOpen] = useState(false);
+
+    const navLinks = [
+        { name: "Home", path: "/" },
+        { name: "Team", path: "/team" },
+        { name: "Matches", path: "/matches" },
+        { name: "Gallery", path: "/gallery" },
+        { name: "Stats", path: "/stats" },
+        { name: "About", path: "/about" },
+    ];
 
     return (
-        <div className="navbar bg-base-100 shadow-md px-4">
+        <nav className="w-full shadow-md bg-white dark:bg-gray-900">
+            <div className="max-w-7xl mx-auto px-4">
 
-            {/* Mobile Menu */}
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16"
-                            />
-                        </svg>
-                    </label>
+                <div className="flex justify-between items-center h-16">
 
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        {links}
+                    {/* Logo */}
+                    <Link to="/" className="flex items-center gap-2">
+                        <img src={logo} alt="Weekend Legends" className="w-10" />
+                        <span className="font-bold text-lg text-gray-800 dark:text-white">
+                            Weekend Legends
+                        </span>
+                    </Link>
+
+                    {/* Desktop Menu */}
+                    <ul className="hidden lg:flex items-center gap-6">
+                        {navLinks.map((link) => (
+                            <li key={link.name}>
+                                <NavLink
+                                    to={link.path}
+                                    className={({ isActive }) =>
+                                        `font-semibold transition ${isActive
+                                            ? "text-blue-600"
+                                            : "text-gray-700 dark:text-gray-200 hover:text-blue-500"
+                                        }`
+                                    }
+                                >
+                                    {link.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
+
+                    {/* Right Side */}
+                    <div className="hidden lg:flex items-center gap-4">
+                        <ThemeToggle />
+
+                        <a
+                            href="https://www.facebook.com/messages/t/1669165066499304"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                        >
+                            Join Group
+                        </a>
+                    </div>
+
+                    {/* Mobile Button */}
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className="lg:hidden text-gray-700 dark:text-white"
+                    >
+                        {open ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+
                 </div>
 
-                {/* Logo */}
-                <Link to="/" className="flex items-center gap-2">
-                    <img src={logo} alt="Weekend Legends" className="w-10" />
-                    <span className="font-bold text-lg hidden md:block">
-                        Weekend Legends
-                    </span>
-                </Link>
-            </div>
+                {/* Mobile Menu */}
+                {open && (
+                    <div className="lg:hidden pb-4">
+                        <ul className="flex flex-col gap-4">
+                            {navLinks.map((link) => (
+                                <li key={link.name}>
+                                    <NavLink
+                                        to={link.path}
+                                        onClick={() => setOpen(false)}
+                                        className={({ isActive }) =>
+                                            `block font-semibold ${isActive
+                                                ? "text-blue-600"
+                                                : "text-gray-700 dark:text-gray-200"
+                                            }`
+                                        }
+                                    >
+                                        {link.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
 
-            {/* Desktop Menu */}
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
-            </div>
+                        <div className="mt-4 flex items-center gap-4">
+                            <ThemeToggle />
 
-            {/* Right Side */}
-            <div className="navbar-end flex items-center gap-2">
-                <ThemeToggle />
-                <a
-                    href="https://www.facebook.com/messages/t/1669165066499304"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-primary"
-                >
-                    Join Group
-                </a>
+                            <a
+                                href="https://www.facebook.com/messages/t/1669165066499304"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                            >
+                                Join Group
+                            </a>
+                        </div>
+                    </div>
+                )}
+
             </div>
-        </div>
+        </nav>
     );
 };
 
