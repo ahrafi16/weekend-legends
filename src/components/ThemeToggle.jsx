@@ -8,7 +8,7 @@ const ThemeToggle = ({ theme, onToggle }) => {
             hover:bg-gray-100 dark:hover:bg-gray-800 
             transition"
         >
-            {theme === "light" ? "🌞 Light" : "🌙 Dark"}
+            {theme === "light" ? "🌙 Dark" : "🌞 Light"}
         </button>
     );
 };
