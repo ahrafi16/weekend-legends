@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ theme, onToggleTheme }) => {
     const [open, setOpen] = useState(false);
 
     const navLinks = [
@@ -51,7 +51,7 @@ const Navbar = () => {
 
                     {/* Right Side */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <ThemeToggle />
+                        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
                         <a
                             href="https://www.facebook.com/messages/t/1669165066499304"
@@ -96,7 +96,7 @@ const Navbar = () => {
                         </ul>
 
                         <div className="mt-4 flex items-center gap-4">
-                            <ThemeToggle />
+                            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
                             <a
                                 href="https://www.facebook.com/messages/t/1669165066499304"
