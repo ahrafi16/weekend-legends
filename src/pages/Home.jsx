@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import hero from "../assets/hero.jpg";
 import { FaTrophy, FaUsers, FaCalendarAlt } from "react-icons/fa";
+import kire_bodiul from "../assets/kire_bodiul.mp4";
 
 const Home = () => {
     return (
@@ -40,34 +41,6 @@ const Home = () => {
                 <h2 className="text-3xl font-bold mb-6">
                     About Weekend Legends
                 </h2>
-
-                <p className="text-3xl text-gray-800 amatic-sc-regular">
-                    Weekend Legends is a friendly cricket community where friends from
-                    our area meet regularly to play cricket at the Gono University field.
-                    Our goal is simple — enjoy cricket, build friendships, and celebrate
-                    the spirit of the game.
-                </p>
-
-                <p className="text-3xl text-gray-800 amatic-sc-regular">
-                    Weekend Legends is a friendly cricket community where friends from
-                    our area meet regularly to play cricket at the Gono University field.
-                    Our goal is simple — enjoy cricket, build friendships, and celebrate
-                    the spirit of the game.
-                </p>
-
-                <p className="text-3xl text-gray-800 amatic-sc-regular">
-                    Weekend Legends is a friendly cricket community where friends from
-                    our area meet regularly to play cricket at the Gono University field.
-                    Our goal is simple — enjoy cricket, build friendships, and celebrate
-                    the spirit of the game.
-                </p>
-
-                <p className="text-3xl text-gray-800 amatic-sc-regular">
-                    Weekend Legends is a friendly cricket community where friends from
-                    our area meet regularly to play cricket at the Gono University field.
-                    Our goal is simple — enjoy cricket, build friendships, and celebrate
-                    the spirit of the game.
-                </p>
 
                 <p className="text-3xl text-gray-800 amatic-sc-regular">
                     Weekend Legends is a friendly cricket community where friends from
@@ -120,7 +93,7 @@ const Home = () => {
                             Weekend Legends vs Local Challengers
                         </h3>
 
-                        <p>Date: Sunday</p>
+                        <p>Date: Friday, Saturday, Sunday</p>
                         <p>Time: 4:00 PM</p>
                         <p>Venue: Gono University Field</p>
 
@@ -143,10 +116,14 @@ const Home = () => {
 
                 <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1593341646782-e0b495cff86d"
-                        className="rounded-lg shadow-md"
-                    />
+                    <video
+                        controls
+                        preload="metadata"
+                        className="w-full h-full object-cover rounded-lg shadow-md"
+                    >
+                        <source src={kire_bodiul} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
 
                     <img
                         src="https://images.unsplash.com/photo-1624880357913-a8539238245b"
