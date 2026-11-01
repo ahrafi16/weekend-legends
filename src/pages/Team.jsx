@@ -1,4 +1,5 @@
 import PlayerCard from "../components/PlayerCard";
+import TeamCardScene from "../components/TeamCardScene";
 import anjum from "../assets/anjum_01.jpg";
 import fahim from "../assets/fahim_02.jpg";
 import masum from "../assets/masum_03.jpg";
@@ -94,13 +95,14 @@ const players = [
 
 const Team = () => {
     return (
-        <div className="max-w-6xl mx-auto py-16 px-6">
+        <div className="isolate relative max-w-screen-2xl mx-auto py-16 px-4">
+            <TeamCardScene />
 
-            <h2 className="text-3xl font-bold text-center mb-10">
+            <h2 className="relative z-10 text-3xl font-bold text-center mb-10">
                 Our Team
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                 {players.map((player, index) => (
                     <PlayerCard key={index} player={player} />
                 ))}

@@ -80,10 +80,13 @@ const PlayerCard = ({ player }) => {
   const { name, role, image, jersey, runs, wickets } = player;
 
   return (
-    <div className="w-72 mx-auto [perspective:1200px]">
+    <div
+      data-three-card
+      className="relative z-10 w-full max-w-96 mx-auto [perspective:1200px]"
+    >
       <div
         className="group relative transition-transform duration-500 ease-out will-change-transform
-                   [transform-style:preserve-3d] hover:[transform:rotateX(6deg)_rotateY(-8deg)_scale(1.03)]"
+                   [transform-style:preserve-3d]"
       >
         {/* Grounding shadow, so the card reads as lifted off the page */}
         <div
@@ -93,10 +96,10 @@ const PlayerCard = ({ player }) => {
 
         {/* Trim layer: same shape, slightly larger, painted behind the body
             via padding — this is what creates the piping around the whole outline */}
-        <div className="relative bg-amber-400 p-1 drop-shadow-xl" style={{ clipPath: JERSEY_CLIP }}>
+        <div className="relative bg-amber-400/35 p-1 drop-shadow-xl" style={{ clipPath: JERSEY_CLIP }}>
           {/* Jersey body */}
           <div
-            className="relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-900 to-black pt-16 pb-8 px-8"
+            className="relative overflow-hidden bg-gradient-to-br from-slate-800/55 via-slate-900/55 to-black/55 pt-20 pb-10 px-10"
             style={{ clipPath: JERSEY_CLIP }}
           >
             {/* Fabric sheen — simulates light hitting curved fabric */}
@@ -113,7 +116,7 @@ const PlayerCard = ({ player }) => {
             <div className="absolute top-[15.5%] right-0 w-[20%] h-[3%] bg-white/80" />
 
             {/* Jersey number, where the back number would sit */}
-            <p className="relative text-center text-amber-400 font-extrabold text-5xl leading-none mb-3 [text-shadow:0_2px_4px_rgba(0,0,0,0.6)]">
+            <p className="relative text-center text-amber-400 font-extrabold text-6xl leading-none mb-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.6)]">
               {jersey}
             </p>
 
@@ -122,13 +125,13 @@ const PlayerCard = ({ player }) => {
               <img
                 src={image}
                 alt={name}
-                className="h-24 w-24 rounded-full object-cover border-4 border-amber-400 shadow-lg"
+                className="h-28 w-28 rounded-full object-cover border-4 border-amber-400 shadow-lg"
               />
             </div>
 
             {/* Name & role */}
-            <div className="relative text-center mb-5">
-              <h2 className="text-white text-lg font-bold tracking-wide [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
+            <div className="relative text-center mb-6">
+              <h2 className="text-white text-xl font-bold tracking-wide [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">
                 {name}
               </h2>
               <div className="flex items-center justify-center gap-1.5 text-slate-300 text-sm mt-1">
@@ -138,13 +141,13 @@ const PlayerCard = ({ player }) => {
             </div>
 
             {/* Stats */}
-            <div className="relative flex justify-center gap-8 text-center pb-2">
+            <div className="relative flex justify-center gap-10 text-center pb-2">
               <div>
-                <p className="text-amber-400 font-bold text-lg">{runs}</p>
+                <p className="text-amber-400 font-bold text-xl">{runs}</p>
                 <p className="text-slate-300 text-xs uppercase tracking-wide">Runs</p>
               </div>
               <div>
-                <p className="text-amber-400 font-bold text-lg">{wickets}</p>
+                <p className="text-amber-400 font-bold text-xl">{wickets}</p>
                 <p className="text-slate-300 text-xs uppercase tracking-wide">Wickets</p>
               </div>
             </div>

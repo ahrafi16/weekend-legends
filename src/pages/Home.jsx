@@ -17,7 +17,7 @@ const Home = () => {
                 <div className="hero-overlay bg-opacity-20"></div>
 
                 <div className="hero-content text-center text-neutral-content">
-                    <div>
+                    <div data-aos="fade-up">
                         <h1 className="mb-5 text-5xl font-bold">
                             Weekend Legends
                         </h1>
@@ -36,13 +36,13 @@ const Home = () => {
             </section>
 
             {/* About Section */}
-            <section className="py-16 px-6 max-w-6xl mx-auto text-center">
+            <section className="py-16 px-6 max-w-6xl mx-auto text-center" data-aos="fade-up">
 
                 <h2 className="text-3xl font-bold mb-6">
                     About Weekend Legends
                 </h2>
 
-                <p className="text-3xl text-gray-800 amatic-sc-regular">
+                <p className="text-3xl text-gray-800 dark:text-gray-200 amatic-sc-regular">
                     Weekend Legends is a friendly cricket community where friends from
                     our area meet regularly to play cricket at the Gono University field.
                     Our goal is simple — enjoy cricket, build friendships, and celebrate
@@ -56,19 +56,19 @@ const Home = () => {
 
                 <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
 
-                    <div className="card bg-base-100 shadow-lg text-center p-6">
+                    <div className="card bg-base-100 shadow-lg text-center p-6" data-aos="fade-up">
                         <FaUsers className="text-4xl mx-auto text-primary mb-4" />
                         <h3 className="text-xl font-bold">Our Team</h3>
                         <p>Dedicated players who love cricket and teamwork.</p>
                     </div>
 
-                    <div className="card bg-base-100 shadow-lg text-center p-6">
+                    <div className="card bg-base-100 shadow-lg text-center p-6" data-aos="fade-up" data-aos-delay="100">
                         <FaCalendarAlt className="text-4xl mx-auto text-primary mb-4" />
                         <h3 className="text-xl font-bold">Weekly Matches</h3>
                         <p>We organize matches regularly at Gono University field.</p>
                     </div>
 
-                    <div className="card bg-base-100 shadow-lg text-center p-6">
+                    <div className="card bg-base-100 shadow-lg text-center p-6" data-aos="fade-up" data-aos-delay="200">
                         <FaTrophy className="text-4xl mx-auto text-primary mb-4" />
                         <h3 className="text-xl font-bold">Competitions</h3>
                         <p>Friendly competitions and unforgettable cricket moments.</p>
@@ -79,7 +79,7 @@ const Home = () => {
             </section>
 
             {/* Next Match */}
-            <section className="py-16 text-center">
+            <section className="py-16 text-center" data-aos="fade-up">
 
                 <h2 className="text-3xl font-bold mb-6">
                     Upcoming Match
@@ -108,7 +108,7 @@ const Home = () => {
             </section>
 
             {/* Gallery Preview */}
-            <section className="py-16 bg-base-200 text-center">
+            <section className="py-16 bg-base-200 text-center" data-aos="fade-up">
 
                 <h2 className="text-3xl font-bold mb-8">
                     Match Memories
@@ -128,11 +128,13 @@ const Home = () => {
                     <img
                         src="https://images.unsplash.com/photo-1624880357913-a8539238245b"
                         className="rounded-lg shadow-md"
+                        alt="Weekend cricket match"
                     />
 
                     <img
                         src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d"
                         className="rounded-lg shadow-md"
+                        alt="Cricket match memories"
                     />
 
                 </div>

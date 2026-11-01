@@ -4,9 +4,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import Aos from "aos";
+import { ArrowUp } from "lucide-react";
+import "aos/dist/aos.css";
 
 const MainLayout = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+    const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
         Aos.init({
@@ -21,6 +24,17 @@ const MainLayout = () => {
         localStorage.setItem("theme", theme);
     }, [theme]);
 
+    useEffect(() => {
+        const updateScrollTopVisibility = () => {
+            setShowScrollTop(window.scrollY > 300);
+        };
+
+        updateScrollTopVisibility();
+        window.addEventListener("scroll", updateScrollTopVisibility, { passive: true });
+
+        return () => window.removeEventListener("scroll", updateScrollTopVisibility);
+    }, []);
+
     return (
         <>
             <Navbar theme={theme} onToggleTheme={() => setTheme((currentTheme) => currentTheme === "light" ? "dark" : "light")} />
@@ -28,6 +42,17 @@ const MainLayout = () => {
                 <Outlet />
             </div>
             <Footer />
+            {showScrollTop && (
+                <button
+                    type="button"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                    aria-label="Scroll to top"
+                    title="Scroll to top"
+                    className="btn btn-primary btn-circle fixed bottom-6 right-6 z-50 shadow-lg"
+                >
+                    <ArrowUp size={22} aria-hidden="true" />
+                </button>
+            )}
         </>
     );
 };
